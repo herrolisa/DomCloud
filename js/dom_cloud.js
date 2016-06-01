@@ -37,4 +37,18 @@ window.onload = function(){
     }
   }
   console.log(counterObj);
+
+  //create array to store top 20 elements and attributes
+  var sortedArr = [];
+  //"convert" object into array
+  for (var countKey in counterObj){
+      sortedArr.push([countKey, counterObj[countKey]]);
+  }
+  //sort arrays in sortedArr from highest to lowest
+  sortedArr.sort(function(a, b) {
+    return b[1] - a[1];
+    });
+  //retrieve top 20 elements and attributes
+  var topTwenty = sortedArr.slice(0,20);
+  console.log(topTwenty);
 };
