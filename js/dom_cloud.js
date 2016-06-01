@@ -51,4 +51,17 @@ window.onload = function(){
   //retrieve top 20 elements and attributes
   var topTwenty = sortedArr.slice(0,20);
   console.log(topTwenty);
+
+  //insert elements and attributes into #dom_cloud_container
+  for (var l = 0; l < topTwenty.length; l++) {
+    //create div container for each element/attribute
+    var cloudDiv = document.createElement("div");
+    cloudDiv.className = "cloud";
+    //set size and insert each elements/attributes w/o count into div
+    cloudDiv.style.fontSize = topTwenty[l][1] * 0.05 + 'em';
+    cloudDiv.innerHTML = topTwenty[l][0];
+    //insert each div into #dom_cloud_container
+    container.appendChild(cloudDiv);
+  }
+
 };
