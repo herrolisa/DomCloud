@@ -1,0 +1,16 @@
+.cloud{
+  display: inline-block;
+  padding: 15px;
+  margin: 5px 10px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+.cloud:nth-child(even) {
+  color: #0AA39B;
+  border: 1px dashed #0AA39B;
+  border-radius: 50%;
+}
+.cloud:nth-child(odd) {
+  color: #2d6360;
+  border: 1px solid #2d6360;
+  border-radius: 50%;
+}
