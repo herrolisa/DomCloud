@@ -24,7 +24,6 @@ window.onload = function(){
   }
   //invoke recursive function with document node
   traverseDOM(theDoc);
-  console.log(everythingArr);
 
   //create object to count number of elements and attributes
   var counterObj = {};
@@ -36,13 +35,12 @@ window.onload = function(){
       counterObj[key] = 1;
     }
   }
-  console.log(counterObj);
 
   //create array to store top 20 elements and attributes
   var sortedArr = [];
   //"convert" object into array
   for (var countKey in counterObj){
-      sortedArr.push([countKey, counterObj[countKey]]);
+      sortedArr.push([countKey.toLowerCase(), counterObj[countKey]]);
   }
   //sort arrays in sortedArr from highest to lowest
   sortedArr.sort(function(a, b) {
@@ -50,7 +48,6 @@ window.onload = function(){
     });
   //retrieve top 20 elements and attributes
   var topTwenty = sortedArr.slice(0,20);
-  console.log(topTwenty);
 
   //insert elements and attributes into #dom_cloud_container
   for (var l = 0; l < topTwenty.length; l++) {
@@ -58,10 +55,9 @@ window.onload = function(){
     var cloudDiv = document.createElement("div");
     cloudDiv.className = "cloud";
     //set size and insert each elements/attributes w/o count into div
-    cloudDiv.style.fontSize = topTwenty[l][1] * 0.05 + 'em';
+    cloudDiv.style.fontSize = topTwenty[l][1] * 0.10 + 'em';
     cloudDiv.innerHTML = topTwenty[l][0];
     //insert each div into #dom_cloud_container
     container.appendChild(cloudDiv);
   }
-
 };
